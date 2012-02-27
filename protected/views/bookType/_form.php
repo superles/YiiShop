@@ -9,16 +9,16 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'parent_id'); ?>
+        <?php echo $form->dropDownList($model, 'parent_id', BookType::model()->getAllTypes()); ?>
+        <?php echo $form->error($model,'parent_id'); ?>
+    </div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'title'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'parent_id'); ?>
-		<?php echo $form->textField($model,'parent_id'); ?>
-		<?php echo $form->error($model,'parent_id'); ?>
 	</div>
 
 	<div class="row buttons">

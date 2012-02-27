@@ -8,7 +8,7 @@
  * @property string $title
  * @property integer $parent_id
  */
-class BookType extends CActiveRecord
+class BookType extends MyActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -62,10 +62,39 @@ class BookType extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'title' => 'Title',
-			'parent_id' => 'Parent',
+			'title' => 'Название',
+			'parent_id' => 'Родительская котегория',
 		);
 	}
+
+    /*
+     * Возвращает название родительской категории по id
+     */
+    public function getParentTypeById($id) {
+        $title = $this->model()->findByPk($id)->title;
+        return $title;
+    }
+
+    /*
+     * Возвращает все категории
+     */
+    public function getAllTypes() {
+        return CHtml::listData($this->model()->findAll(), 'id', 'title');
+    }
+
+    /*
+     * Записываем URL
+     */
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            if($this->isNewRecord) {
+                $this->url = $this->translit($this->title);
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

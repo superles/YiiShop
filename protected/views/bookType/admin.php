@@ -31,6 +31,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Создать', array('/bookType/create'), array('style' => 'margin-left: 15px;')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -43,10 +44,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+        array(
+            'name' => 'parent_id',
+            'value' => 'BookType::model()->getParentTypeById($data->parent_id)'
+        ),
 		'title',
-		'parent_id',
 		array(
 			'class'=>'CButtonColumn',
+            'template' => '{update}{delete}',
 		),
 	),
 )); ?>
