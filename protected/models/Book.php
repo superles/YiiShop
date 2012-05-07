@@ -47,8 +47,9 @@ class Book extends CActiveRecord implements IECartPosition
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, author, description', 'required'),
-			array('book_type, release_date, num_pages', 'numerical', 'integerOnly'=>true),
+			array('title, author, description, price', 'required'),
+			array('book_type, num_pages', 'numerical', 'integerOnly'=>true),
+            array('release_date', 'date', 'format'=>'dd.MM.yyyy'),
 			array('title, author', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -59,11 +60,9 @@ class Book extends CActiveRecord implements IECartPosition
 	/**
 	 * @return array relational rules.
 	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
+	public function relations()	{
 		return array(
+            'category' => array(self::BELONGS_TO, 'BookType', 'book_type'),
 		);
 	}
 
@@ -74,12 +73,13 @@ class Book extends CActiveRecord implements IECartPosition
 	{
 		return array(
 			'id' => 'Id',
-			'title' => 'Title',
-			'author' => 'Author',
-			'description' => 'Description',
-			'book_type' => 'Book Type',
-			'release_date' => 'Release Date',
-			'num_pages' => 'Num Pages',
+			'title' => 'Название',
+			'author' => 'Автор',
+			'description' => 'Описание',
+			'book_type' => 'Категория',
+			'release_date' => 'Дата выхода',
+			'num_pages' => 'Количество страниц',
+            'price' => 'Цена',
 		);
 	}
 
@@ -112,4 +112,19 @@ class Book extends CActiveRecord implements IECartPosition
 			'criteria'=>$criteria,
 		));
 	}
+
+    protected function beforeSave() {
+        if(parent::beforeSave()) {
+            $this->release_date = strtotime($this->release_date);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected function afterFind() {
+        $date = date('d.m.Y', $this->release_date);
+        $this->release_date = $date;
+        parent::afterFind();
+    }
 }

@@ -47,11 +47,9 @@ class BookType extends MyActiveRecord
 	/**
 	 * @return array relational rules.
 	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
+	public function relations()	{
 		return array(
+            'books' => array(self::HAS_MANY, 'Book', 'book_type'),
 		);
 	}
 

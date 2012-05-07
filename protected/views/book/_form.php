@@ -21,32 +21,62 @@
 		<?php echo $form->error($model,'author'); ?>
 	</div>
 
+    <div class="row">
+        <?php echo $form->labelEx($model,'book_type'); ?>
+        <?php echo $form->dropDownList($model, 'book_type', BookType::model()->getAllTypes()); ?>
+        <?php echo $form->error($model,'book_type'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'release_date'); ?>
+        <?php
+        $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+            'name' => 'release_date',
+            'model' => $model,
+            'attribute' => 'release_date',
+            'language' => 'ru',
+            'options' => array(
+                'showAnim' => 'fold',
+            ),
+            'htmlOptions' => array(
+                'style' => 'height:20px;'
+            ),
+        ));
+        ?>
+        <?php echo $form->error($model,'release_date'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'num_pages'); ?>
+        <?php echo $form->textField($model,'num_pages'); ?>
+        <?php echo $form->error($model,'num_pages'); ?>
+    </div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+        <?php $this->widget('ext.fckeditor.FCKEditorWidget', array(
+            "model"=>$model,
+            "attribute"=>'description',
+            "height"=>'400px',
+            "width"=>'100%',
+            "toolbarSet"=>'Default',
+            "fckeditor"=>Yii::app()->basePath."/../fckeditor/fckeditor.php",
+            "fckBasePath"=>Yii::app()->baseUrl."/fckeditor/",
+            "config" => array(
+                "EditorAreaCSS"=>Yii::app()->baseUrl.'/css/index.css',),
+        )
+        );?>
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'book_type'); ?>
-		<?php echo $form->textField($model,'book_type'); ?>
-		<?php echo $form->error($model,'book_type'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'release_date'); ?>
-		<?php echo $form->textField($model,'release_date'); ?>
-		<?php echo $form->error($model,'release_date'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'num_pages'); ?>
-		<?php echo $form->textField($model,'num_pages'); ?>
-		<?php echo $form->error($model,'num_pages'); ?>
-	</div>
+    <div class="row">
+        <?php echo $form->labelEx($model, 'price'); ?>
+        <?php echo $form->textField($model,'price',array('size'=>20,'maxlength'=>10)); ?>
+        <?php echo $form->error($model,'price'); ?>
+    </div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

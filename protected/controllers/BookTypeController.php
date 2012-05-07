@@ -8,6 +8,8 @@ class BookTypeController extends Controller
 	 */
 	public $layout='//layouts/column2';
 
+    public $defaultAction = 'admin';
+
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
