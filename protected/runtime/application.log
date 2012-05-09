@@ -1,0 +1,95 @@
+2012/05/09 06:41:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "product/admin".' in /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php(135): CWebApplication->runController('product/admin')
+#1 /home/yuriy/Projects/GIT/YiiShop/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/yuriy/Projects/GIT/YiiShop/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=product/admin
+---
+2012/05/09 09:26:03 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 09:26:52 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 09:49:34 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 09:50:25 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 09:51:26 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:03:38 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:05:22 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (71)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:05:30 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:05:35 [warning] [application] Не удалось присвоить небезопасный атрибут "image" класса "Book".
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (101)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:38:19 [error] [php] include(EImageColumn.php): failed to open stream: No such file or directory (/home/yuriy/Projects/GIT/YiiShop/framework/YiiBase.php:418)
+Stack trace:
+#0 /home/yuriy/Projects/GIT/YiiShop/framework/YiiBase.php(198): import()
+#1 /home/yuriy/Projects/GIT/YiiShop/framework/zii/widgets/grid/CGridView.php(313): createComponent()
+#2 /home/yuriy/Projects/GIT/YiiShop/framework/zii/widgets/grid/CGridView.php(284): CGridView->initColumns()
+#3 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(148): CGridView->init()
+#4 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(173): BookController->createWidget()
+#5 /home/yuriy/Projects/GIT/YiiShop/protected/views/book/admin.php(66): BookController->widget()
+#6 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(127): require()
+#7 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(96): BookController->renderInternal()
+#8 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(870): BookController->renderFile()
+#9 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(783): BookController->renderPartial()
+#10 /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php(150): BookController->render()
+#11 /home/yuriy/Projects/GIT/YiiShop/framework/web/actions/CInlineAction.php(50): BookController->actionAdmin()
+#12 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(309): CInlineAction->runWithParams()
+#13 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilterChain.php(134): BookController->runAction()
+#14 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#16 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CInlineFilter.php(59): BookController->filterAccessControl()
+#17 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#18 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(266): BookController->runActionWithFilters()
+#20 /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php(276): BookController->run()
+#21 /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#22 /home/yuriy/Projects/GIT/YiiShop/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/yuriy/Projects/GIT/YiiShop/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=book/admin
+in /home/yuriy/Projects/GIT/YiiShop/protected/views/book/admin.php (66)
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (150)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)
+2012/05/09 10:38:24 [error] [php] include(EImageColumn.php): failed to open stream: No such file or directory (/home/yuriy/Projects/GIT/YiiShop/framework/YiiBase.php:418)
+Stack trace:
+#0 /home/yuriy/Projects/GIT/YiiShop/framework/YiiBase.php(198): import()
+#1 /home/yuriy/Projects/GIT/YiiShop/framework/zii/widgets/grid/CGridView.php(313): createComponent()
+#2 /home/yuriy/Projects/GIT/YiiShop/framework/zii/widgets/grid/CGridView.php(284): CGridView->initColumns()
+#3 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(148): CGridView->init()
+#4 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(173): BookController->createWidget()
+#5 /home/yuriy/Projects/GIT/YiiShop/protected/views/book/admin.php(66): BookController->widget()
+#6 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(127): require()
+#7 /home/yuriy/Projects/GIT/YiiShop/framework/web/CBaseController.php(96): BookController->renderInternal()
+#8 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(870): BookController->renderFile()
+#9 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(783): BookController->renderPartial()
+#10 /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php(150): BookController->render()
+#11 /home/yuriy/Projects/GIT/YiiShop/framework/web/actions/CInlineAction.php(50): BookController->actionAdmin()
+#12 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(309): CInlineAction->runWithParams()
+#13 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilterChain.php(134): BookController->runAction()
+#14 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#15 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#16 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CInlineFilter.php(59): BookController->filterAccessControl()
+#17 /home/yuriy/Projects/GIT/YiiShop/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#18 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(292): CFilterChain->run()
+#19 /home/yuriy/Projects/GIT/YiiShop/framework/web/CController.php(266): BookController->runActionWithFilters()
+#20 /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php(276): BookController->run()
+#21 /home/yuriy/Projects/GIT/YiiShop/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#22 /home/yuriy/Projects/GIT/YiiShop/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#23 /home/yuriy/Projects/GIT/YiiShop/index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=book/admin
+in /home/yuriy/Projects/GIT/YiiShop/protected/views/book/admin.php (66)
+in /home/yuriy/Projects/GIT/YiiShop/protected/controllers/BookController.php (150)
+in /home/yuriy/Projects/GIT/YiiShop/index.php (13)

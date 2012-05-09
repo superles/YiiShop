@@ -51,6 +51,7 @@ class Book extends CActiveRecord implements IECartPosition
 			array('book_type, num_pages', 'numerical', 'integerOnly'=>true),
             array('release_date', 'date', 'format'=>'dd.MM.yyyy'),
 			array('title, author', 'length', 'max'=>255),
+            array('image', 'unsafe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, author, description, book_type, release_date, num_pages', 'safe', 'on'=>'search'),
@@ -80,6 +81,7 @@ class Book extends CActiveRecord implements IECartPosition
 			'release_date' => 'Дата выхода',
 			'num_pages' => 'Количество страниц',
             'price' => 'Цена',
+            'image' => 'Изображение',
 		);
 	}
 
@@ -107,6 +109,8 @@ class Book extends CActiveRecord implements IECartPosition
 		$criteria->compare('release_date',$this->release_date);
 
 		$criteria->compare('num_pages',$this->num_pages);
+
+        $criteria->compare('image',$this->image,true);
 
 		return new CActiveDataProvider('Book', array(
 			'criteria'=>$criteria,

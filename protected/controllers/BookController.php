@@ -63,14 +63,18 @@ class BookController extends Controller
 	{
 		$model=new Book;
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Book']))
 		{
 			$model->attributes=$_POST['Book'];
-			if($model->save())
+            $file_image = CUploadedFile::getInstance($model, 'image');
+            if(is_object($file_image) && get_class($file_image) === 'CUploadedFile')
+                $model->image = $file_image;
+			if($model->save()) {
+                if(is_object($file_image)) {
+                    $model->image->saveAs($_SERVER['DOCUMENT_ROOT'] . '/images/books/' .$model->id . $model->image);
+                }
                 $this->redirect(array('admin'));
+            }
 		}
 
 		$this->render('create',array(
@@ -78,22 +82,22 @@ class BookController extends Controller
 		));
 	}
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Book']))
 		{
-			$model->attributes=$_POST['Book'];
-			if($model->save())
+            $model->attributes=$_POST['Book'];
+            $file_image = CUploadedFile::getInstance($model, 'image');
+            if(is_object($file_image) && get_class($file_image) === 'CUploadedFile')
+                $model->image = $file_image;
+            if($model->save()) {
+                if(is_object($file_image)) {
+                    $model->image->saveAs($_SERVER['DOCUMENT_ROOT'] . '/images/books/' .$model->id . $model->image);
+                }
                 $this->redirect(array('admin'));
+            }
 		}
 
 		$this->render('update',array(

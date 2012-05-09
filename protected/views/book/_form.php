@@ -3,6 +3,8 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'book-form',
 	'enableAjaxValidation'=>false,
+    'method' => 'post',
+    'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -50,6 +52,17 @@
         <?php echo $form->labelEx($model,'num_pages'); ?>
         <?php echo $form->textField($model,'num_pages'); ?>
         <?php echo $form->error($model,'num_pages'); ?>
+    </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'image'); ?>
+        <?php echo $form->fileField($model, 'image')?>
+        <?php echo $form->error($model,'image'); ?>
+        <?php
+        if(!$model->isNewRecord) {
+            echo CHtml::image(Yii::app()->baseUrl.'/images/books/' .$model->id . $model->image, $model->title, array('height'=>100));
+        }
+        ?>
     </div>
 
 	<div class="row">
