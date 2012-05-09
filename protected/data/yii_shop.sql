@@ -1,13 +1,3 @@
---
--- База данных: `yii_shop`
---
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `tbl_book`
---
-
 CREATE TABLE IF NOT EXISTS `tbl_book` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -17,15 +7,17 @@ CREATE TABLE IF NOT EXISTS `tbl_book` (
   `release_date` int(11) DEFAULT NULL,
   `num_pages` int(11) DEFAULT NULL,
   `price` float(6,2) NOT NULL,
+  `image` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `tbl_book`
 --
 
-INSERT INTO `tbl_book` (`id`, `title`, `author`, `description`, `book_type`, `release_date`, `num_pages`, `price`) VALUES
-(1, 'PHP. Объекты, шаблоны и методики программирования', 'Мэтт Зандстра', '<p><span style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); ">За последние десять лет PHP буквально охватила объектно-ориентированная революция, причем это относится как к самим средствам языка, так и к разработчикам, использующим эти средства, и к приложениям, которые они создают. Теперь основной акцент делается на объектах и объектно-ориентированном подходе к проектированию. Существует еще один момент, связанный с этим и также прочно укоренившийся в современные методики разработки объектно-ориентированных приложений. Речь идет об использовании средств и методик, благодаря которым достигается успешное выполнение проекта, осуществляется эффективное управление группами разработчиков и повышается качество кода.&nbsp;</span><br style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); " />\r\n<span style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); ">Книга начинается с обзора объектно-ориентированных возможностей PHP, в который включены важные темы, наподобие</span></p>', 3, 1335816000, 800, 630.00);
+INSERT INTO `tbl_book` (`id`, `title`, `author`, `description`, `book_type`, `release_date`, `num_pages`, `price`, `image`) VALUES
+(1, 'PHP. Объекты, шаблоны и методики программирования', 'Мэтт Зандстра', '<p><span style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); ">За последние десять лет PHP буквально охватила объектно-ориентированная революция, причем это относится как к самим средствам языка, так и к разработчикам, использующим эти средства, и к приложениям, которые они создают. Теперь основной акцент делается на объектах и объектно-ориентированном подходе к проектированию. Существует еще один момент, связанный с этим и также прочно укоренившийся в современные методики разработки объектно-ориентированных приложений. Речь идет об использовании средств и методик, благодаря которым достигается успешное выполнение проекта, осуществляется эффективное управление группами разработчиков и повышается качество кода.&nbsp;</span><br style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); " />\r\n<span style="font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; background-color: rgb(255, 255, 255); ">Книга начинается с обзора объектно-ориентированных возможностей PHP, в который включены важные темы, наподобие</span></p>', 3, 1335816000, 800, 630.00, 'PHPobjecttemplates.jpg'),
+(2, 'Разработка веб-приложений с помощью PHP и MySQL', 'Л. Веллинг', '<p>Эта книга по которой многие мои знакомые начинали программирование на php. В том числе и я сам. Книга хороша тем, что все теоретические материалы в итоге сводятся к практике, и по ходу прочтения вы создаете сайт.</p>\r\n<p>Рекомендую всем начинающим php-программистам.</p>', 3, 1336420800, 1000, 800.00, 'phpmysql.jpg');
 
 -- --------------------------------------------------------
 
@@ -153,9 +145,5 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `username`, `password`, `email`, `activkey`, `createtime`, `lastvisit`, `superuser`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336357453, 1, 1),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336540854, 1, 1),
 (2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 0, 0, 1);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
